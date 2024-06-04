@@ -1,0 +1,24 @@
+{
+    "name": "pc/app-salon_php_mvc_js_sass",
+    "description": "Proyecto php8, mvc, sql, sass, Gulp",
+    "type": "project",
+    "autoload": {
+        "psr-4":{
+            "MVC\\" : "./",
+            "Controllers\\": "./controllers",
+            "Model\\": "./models",
+            "Classes\\": "./Classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fabio Fernandez Veizaga",  
+            "email": "kingofnoobs845@gmail.com"
+        }
+     
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
