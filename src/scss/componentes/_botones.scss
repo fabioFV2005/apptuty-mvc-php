@@ -2,11 +2,13 @@
 @use 'base/mixins' as m;
 
 .boton{
+
     @include m.boton(v.$azul,v.$blanco);
 }
 .boton-eliminar{
     @include m.boton(v.$rojo , v.$blanco)
 }
+
 .button {
   width: 50px;
   height: 50px;
@@ -61,4 +63,60 @@
   opacity: 1;
   transform: translateY(30px);
   transition-duration: .3s;
+}
+
+.boton-enviar{
+  cursor: pointer;
+  background-color: blue;
+    color: v.$blanco;
+    padding: 1rem 3rem ;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    width: 90%;
+    text-align: center;
+    border:none;
+}
+.centrar-boton{
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.boton-enviar:hover {
+  
+  /* Estilos adicionales al pasar el cursor por encima */
+  /* Por ejemplo, puedes cambiar el color de fondo o el texto */
+  background-color: #ffc107;;
+}
+
+.boton-editar {
+  text-decoration: none;
+  background-color: blue;
+  color: white;
+}
+.boton-editar {
+  display: inline-block; /* Hace que los elementos estén en línea */
+  margin-right: 10px; /* Espacio entre los elementos (ajústalo según tus necesidades) */
+}
+.boton-pedido{
+  background-color: blue;
+    color: v.$blanco;
+   // display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem ;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: none;
+}
+.boton-pedido:hover {
+  
+  /* Estilos adicionales al pasar el cursor por encima */
+  /* Por ejemplo, puedes cambiar el color de fondo o el texto */
+  background-color: #ffc107;;
 }

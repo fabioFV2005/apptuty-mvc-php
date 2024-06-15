@@ -13,3 +13,35 @@
     display: none;
 }
 
+
+.titulo span{
+    font-size: 2rem;
+    
+    }
+    .contenedor{
+        max-width: 120rem;  /*1rem = 10px*/
+        /*margin-top:0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;*/
+    margin: 0 auto 0 auto; /*top , right, buttom, left  o tambien margin 0 auto*/
+}
+.navegacion-Principal{
+ 
+    display: flex;
+    flex-direction: column;
+    
+  
+  }
+  
+  
+  @media (min-width: 768px) {
+      .navegacion-Principal{
+          flex-direction: row;
+          justify-content: space-between;
+      }
+  }
+  
+.pedido-texto{
+    margin-top: 2rem;
+}

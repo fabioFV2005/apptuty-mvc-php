@@ -1,10 +1,17 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+.logo-contenedor{
+    .logo{
+      
+        width: 300px; /* Ancho inicial */
+    height: 300px; /* Alto inicial */
+    }
+    display: flex;
+    flex-direction: column; /* Alinea verticalmente */
+    align-items: center; 
+   
+  }
 
-.formulario{
-    margin-top: 5rem;
-    width: 100%;
-}
 .campo{
     display: flex;
     margin-bottom: 2rem;
@@ -24,4 +31,51 @@
             cursor: not-allowed;
         }
     }
+}
+
+
+.campo{
+    margin-bottom: 2rem;
+    }
+    .campo label{
+    color: v.$blanco;
+    font-weight: bold ;
+    margin-bottom: 0.5rem;
+    display: block;
+    }
+    .input-text{
+        width: 100%;
+        border:none;
+        padding: 1.5rem;
+        border-radius: 2rem;
+    
+    }
+.formulario-texto{
+    margin-top: 3rem;
+}
+.formulario-imagen{
+    max-width: 20rem;
+    margin: auto;
+
+}
+
+
+
+.categoria-select {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Puedes agregar más estilos para estados específicos */
+.categoria-select option {
+    padding: 0.5rem;
 }

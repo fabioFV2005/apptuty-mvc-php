@@ -2,13 +2,19 @@
 namespace Controllers;
 
 use Model\Cita;
+use Model\Mesa;
 use Model\Servicio;
 use Model\CitaServicio;
+//use Model\Categoria;
+use MVC\Router;
 
 class APIController{
-    public static function index(){
+    public static function index(Router $router){
         $servicios = Servicio::all();
+       // $categorias = Categoria::all();  
         echo json_encode($servicios);
+     //   echo json_encode(['categorias' => $categorias]);
+    
     }
     public static function guardar(){
         //almacena la cita y devuelve el id

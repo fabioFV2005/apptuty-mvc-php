@@ -1,11 +1,15 @@
+<main class = "contenedor sombra">
 <h1 class="nombre-pagina">crear cuenta</h1>
-<p class="descripcion-pagina">Llena el siguiente formulario para crear una cuenta
-</p>
+<div class="logo-contenedor">
+
+<img class = "logo"src="/build/img/logo-polleria.jpg" alt="Logo de la pollería">
+                
+</div>
 <?php
     include_once __DIR__  . "/../templates/alertas.php";
 ?>
 <form class="formulario" method="POST" action="/crear-cuenta">   
-
+<legend>Llena el siguiente formulario para crear una cuenta</legend>
     <div class="campo">
         <label for="nombre">Nombre</label>
         <input 
@@ -56,10 +60,12 @@
             placeholder="Tu Password"
         />
     </div>
-    <input type="submit" value="crear cuenta" class="boton">
+    <div class="centrar-boton"><input type="submit" class="boton-enviar" value="Verificar Correo"></div>
+    
 </form>
 
 <div class="acciones">
     <a href="/">Volver/Iniciar sesion</a>
     <a href="/olvide">Olvide mi password</a>
 </div>
+</main>

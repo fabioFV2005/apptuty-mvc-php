@@ -3,17 +3,18 @@
 .citas{
     list-style: none;
     padding:0;
+    
     li{
         padding: 1rem;
         border-top:  1px solid v.$blanco;
         p{
            font-weight: v.$bold;
-            color: v.$azul;
+            color: v.$naranja;
         }
         span,
         .servicio{
             font-weight: v.$regular;
-            color:v.$blanco;
+            color:v.$negro;
         }
     }
 }
@@ -27,4 +28,151 @@
     .boton, .boton-eliminar{
         margin: 0;
     }
+}
+#imagenProducto {
+    background-color: #f0f0f0;
+    border: 5px solid white;
+    padding: 5px;
+    /* Otros estilos según tus preferencias */
+  }
+  .citas-admin {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 5px 8px 2rem rgba(0, 0, 0, 0.1);
+    max-height: 50vh; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    
+    .button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(20, 20, 20);
+        border: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+        cursor: pointer;
+        transition-duration: .3s;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .svgIcon {
+        width: 12px;
+        transition-duration: .3s;
+      }
+      
+      .svgIcon path {
+        fill: white;
+      }
+      
+      .button:hover {
+        width: 140px;
+        border-radius: 50px;
+        transition-duration: .3s;
+        background-color: rgb(255, 69, 69);
+        align-items: center;
+      }
+      
+      .button:hover .svgIcon {
+        width: 50px;
+        transition-duration: .3s;
+        transform: translateY(60%);
+      }
+      
+      .button::before {
+        position: absolute;
+        top: -20px;
+        content: "Eliminar";
+        color: white;
+        transition-duration: .3s;
+        font-size: 2px;
+      }
+      
+      .button:hover::before {
+        font-size: 13px;
+        opacity: 1;
+        transform: translateY(30px);
+        transition-duration: .3s;
+      }
+      .citas {
+        list-style: none;
+    
+    }
+   
+    .citas p {
+        font-size: 2rem;
+        margin: 5px 0;
+    
+    }
+    
+    .citas span {
+        font-weight: bold;
+        color: #ffc107;
+    }
+    
+    .servicio {
+        font-size: 0.9rem;
+        color: #555;
+        margin-left: 20px;
+    }
+    
+    .total {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    .total span {
+        color: blue;
+    }
+  
+    h3 {
+      
+        font-size: 1.5rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+}
+
+
+/* Estilos para los encabezados de la tabla */
+.cabezera {
+  background-color: #757575 !important; /* Color de fondo */
+  color: white; /* Color del texto */
+}
+th{
+  color:#fff !important;
+}
+.cabezera th {
+  padding: 12px 15px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
+  background-color: #757575 !important; 
+  border-bottom: 1rem solid #dee2e6; /* Borde inferior */
+}
+
+.cabezera th:first-child {
+  border-top-left-radius: 1rem; /* Borde redondeado superior izquierdo del primer th */
+}
+
+.cabezera th:last-child {
+  border-top-right-radius: 1rem; /* Borde redondeado superior derecho del último th */
+}
+
+/* Estilos para las filas de la tabla */
+.table tbody tr:hover {
+  background-color: #f5f5f5; /* Color de fondo al pasar el mouse */
 }

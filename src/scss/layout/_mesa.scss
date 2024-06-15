@@ -1,0 +1,7 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.table-container {
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Agregar scroll vertical cuando el contenido exceda la altura máxima */
+}

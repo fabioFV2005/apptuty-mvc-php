@@ -12,8 +12,8 @@ body {
     }
     display: flex;
     flex-direction: column;
-    background-color: v.$negro;
-    color: v.$blanco;
+    background-image: linear-gradient(to top, v.$gris_claro 0%, v.$blanco 100%);
+    color: v.$negro;
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
 }

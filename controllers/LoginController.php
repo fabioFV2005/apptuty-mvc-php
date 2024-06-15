@@ -25,13 +25,14 @@ class LoginController{
                         $_SESSION['id'] = $usuario->id;
                         $_SESSION['nombre'] = $usuario->nombre ." ". $usuario->apellido;
                         $_SESSION['email'] = $usuario->email;
+                        $_SESSION['telefono'] = $usuario->telefono;
                         $_SESSION['login'] = true;
                       
                         if($usuario->_admin === '1'){
                           $_SESSION['_admin'] = $usuario->_admin ?? '0' ;
                           header('Location: /admin');
                         }else{
-                          header('Location: /cita');
+                          header('Location: /informacion');
                         }
                      }
                   }else{
@@ -49,7 +50,7 @@ class LoginController{
     }
     public static function logout(){
       session_start();
-      $_SESSION =[];
+      $_SESSION = [];
      // debuguear($_SESSION);
       header('Location: /'); 
     }

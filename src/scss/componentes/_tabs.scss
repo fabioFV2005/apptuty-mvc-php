@@ -5,7 +5,7 @@
         display: flex;
     }
     button{
-        background-color: v.$azul;
+        background-color: blue;
         border: none;
         color : v.$blanco;
         padding :1rem;
@@ -21,8 +21,8 @@
             background-color: darken(v.$azul,10%) ;
         }
         &.actual{
-                background-color: v.$blanco;
-                color:v.$azul;
+                background-color:  #ffc107;
+                color:v.$blanco;
         }
     }
 

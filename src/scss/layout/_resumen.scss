@@ -3,13 +3,15 @@
 
 .contenido-resumen{
     p{
+        font-weight:300;
             margin-bottom: 1rem;
     }
     span{
-            color:v.$azul;
+            color:v.$naranja;
             font-weight: v.$bold;
             font-size: 2.4rem;
     }
+    
 }
 .contenedor-servicio{
 

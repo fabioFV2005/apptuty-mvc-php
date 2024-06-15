@@ -9,34 +9,57 @@
         @include m.grid(2,2rem)
     }
     .servicio{
-        background-color: v.$blanco;
+        background-color:   #ffa807;
         padding: 3rem;
-        border-radius: 3rem;
+        border-radius: 2rem;
         transition: transform;
-        transition-duration: 300ms;
+        transition-duration: 500ms;
         text-align: center;
 
         &.seleccionado{
-            background-color: v.$azul;
+            background-color: #ffa807 ;
             p{
                color:v.$blanco; 
             }
         }
 
         &:hover{
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
 
         p{
-            color: v.$negro;
+            color: black;
+            font-weight: bold;
             margin: 0 0 calc(v.$separacion /4) 0 ;
         }
         .precio-servicio{
-            color: v.$azul;
+            color:  white;
             font-weight: v.$bold;
             font-size: 3rem;
-            margin: 0;
+            margin: 5;
+            margin-bottom: 2rem;
         }
+
+        .contador-servicio{
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 6rem;
+        }
+        .boton-disminuir,
+        .boton-aumentar {
+            /* Agrega aquí tus estilos */
+            background-color: #cccccc;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+
     }
 }

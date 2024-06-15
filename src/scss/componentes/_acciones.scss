@@ -2,7 +2,13 @@
 @use 'base/mixins' as m;
 .acciones{
 
+    
+    color: v.$negro;
     margin-top: v.$separacion;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
     @include m.tablet{
 
         display: flex;
@@ -10,7 +16,7 @@
         align-items: center;
     }
     a{
-        color:v.$blanco;
+        color:v.$negro;
         display: block;
     margin-bottom: calc(v.$separacion/2);
         text-align: center;

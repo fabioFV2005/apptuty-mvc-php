@@ -149,12 +149,12 @@ class ActiveRecord {
         $atributos = $this->sanitizarAtributos();
  
         // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES ('";
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
-        
+        $query = "INSERT INTO " . static::$tabla . " (";
+$query .= join(', ', array_keys($atributos));
+$query .= ") VALUES ('";
+$query .= join("', '", array_values($atributos));
+$query .= "')";
+        //debuguear($query);
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [

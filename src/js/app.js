@@ -22,7 +22,7 @@ function iniciarApp() {
     paginaAnterior();
 
     consultarAPI(); // Consulta la API en el backend de PHP
-
+  
     idCliente();
     nombreCliente(); // Añade el nombre del cliente al objeto de cita
     seleccionarFecha(); // Añade la fecha de la cita en el objeto
@@ -127,7 +127,7 @@ async function consultarAPI() {
 
 function mostrarServicios(servicios) {
     servicios.forEach( servicio => {
-        const { id, nombre, precio } = servicio;
+        const { id, nombre, precio, imagenProducto} = servicio;
 
         const nombreServicio = document.createElement('P');
         nombreServicio.classList.add('nombre-servicio');
@@ -135,23 +135,97 @@ function mostrarServicios(servicios) {
 
         const precioServicio = document.createElement('P');
         precioServicio.classList.add('precio-servicio');
-        precioServicio.textContent = `$${precio}`;
+        precioServicio.textContent = `${precio} Bs`;
+
+
+
+        const imagenServicio = document.createElement('IMG');
+        imagenServicio.classList.add('imagen-servicio');
+        imagenServicio.src = `/img/ImagenProductos/${imagenProducto}.png`;
+
+        imagenServicio.width = 200; // Ancho en píxeles
+imagenServicio.height = 200; // Alto en píxeles
 
         const servicioDiv = document.createElement('DIV');
         servicioDiv.classList.add('servicio');
         servicioDiv.dataset.idServicio = id;
-        servicioDiv.onclick = function() {
+
+        const contadorServicio = document.createElement('span');
+        contadorServicio.classList.add('contador-servicio');
+        contadorServicio.textContent = '0'; // Inicializamos el contador en 0
+
+        const botonDisminuir = document.createElement('BUTTON');
+        botonDisminuir.textContent = '-';
+        botonDisminuir.classList.add('boton-disminuir'); // Agregar la clase CSS
+
+        botonDisminuir.onclick = function() {
+            deseleccionar(servicio);
+            decrementarContador(contadorServicio); // Decrementamos el contador
+           
+        };
+        const botonAumentar = document.createElement('BUTTON');
+        botonAumentar.textContent = '+';
+        botonAumentar.classList.add('boton-aumentar');
+        botonAumentar.onclick = function() {
             seleccionarServicio(servicio);
-        }
+            incrementarContador(contadorServicio); // Incrementamos el contador
+        };
+       
+
+
+
 
         servicioDiv.appendChild(nombreServicio);
+        servicioDiv.appendChild( imagenServicio);
         servicioDiv.appendChild(precioServicio);
-
+        servicioDiv.appendChild(botonDisminuir);
+        servicioDiv.appendChild(contadorServicio);
+        servicioDiv.appendChild(botonAumentar);
         document.querySelector('#servicios').appendChild(servicioDiv);
 
     });
 }
 
+function deseleccionar(servicio) {
+    const { id } = servicio;
+    const { servicios } = cita;
+
+    // Encuentra el índice de la primera instancia del servicio con el ID dado
+    const indiceAEliminar = servicios.findIndex(s => s.id === id);
+
+    // Si se encuentra el servicio, elimínalo
+    if (indiceAEliminar !== -1) {
+        servicios.splice(indiceAEliminar, 1);
+        console.log(`Se eliminó una instancia del servicio con ID ${id}.`);
+    } else {
+        console.log(`No se encontró ningún servicio con el ID ${id}.`);
+    }
+}
+
+function incrementarContador(elemento, id) {
+    let contador = parseInt(elemento.textContent);
+    contador++;
+    elemento.textContent = contador.toString();
+
+    // Si el contador es mayor que 0, agregar la clase 'seleccionado' al div del servicio
+    
+}
+
+function decrementarContador(elemento, servicio) {
+    let contador = parseInt(elemento.textContent);
+    contador--;
+    if (contador < 0) contador = 0; // No permitir valores negativos
+
+ 
+    elemento.textContent = contador.toString();
+    if (contador < 1) {
+        const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
+        divServicio.classList.remove('seleccionado');
+    }
+   
+    // Si el contador llega a 0, remover la clase 'seleccionado' del div del servicio
+   
+}
 function seleccionarServicio(servicio) {
     const { id } = servicio;
     const { servicios } = cita;
@@ -160,17 +234,15 @@ function seleccionarServicio(servicio) {
     const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
 
     // Comprobar si un servicio ya fue agregado 
-    if( servicios.some( agregado => agregado.id === id ) ) {
-        // Eliminarlo
-        cita.servicios = servicios.filter( agregado => agregado.id !== id );
-        divServicio.classList.remove('seleccionado');
-    } else {
+  
         // Agregarlo
+        
         cita.servicios = [...servicios, servicio];
         divServicio.classList.add('seleccionado');
-    }
-    // console.log(cita);
+    
+     console.log(cita);
 }
+
 
 function idCliente() {
     cita.id = document.querySelector('#id').value;
@@ -309,8 +381,8 @@ function mostrarResumen() {
 
     // Boton para Crear una cita
     const botonReservar = document.createElement('BUTTON');
-    botonReservar.classList.add('boton');
-    botonReservar.textContent = 'Reservar Cita';
+    botonReservar.classList.add('boton-pedido');
+    botonReservar.textContent = 'Hacer pedido';
     botonReservar.onclick = reservarCita;
 
     resumen.appendChild(nombreCliente);
@@ -343,8 +415,8 @@ try {
     console.log(resultado.resultado);
     if(resultado.resultado){
         Swal.fire({
-            title: "Reserva registrada",
-            text: "Tu cita fue registrada con exito :D!!!",
+            title: "Pedido registrado",
+            text: "Tu pedido fue registrado con exito",
             icon: "success"
           }).then(() =>{
             setTimeout(() => {
@@ -358,7 +430,7 @@ try {
     Swal.fire({
         icon: "error",
         title: "Error...",
-        text: "HUBO UN ERROR AL REGISTRAR LOS DATOS :(",
+        text: "HUBO UN ERROR AL REGISTRAR LOS DATOS",
       });
 }
 
